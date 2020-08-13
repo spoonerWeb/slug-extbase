@@ -9,7 +9,8 @@ $EM_CONF['slug_extbase'] = [
     'clearCacheOnLoad' => true,
     'constraints' => [
         'depends' => [
-            'typo3' => '9.5.0 - 10.4.99'
+            'typo3' => '9.5.0 - 10.4.99',
+            'extbase' => '9.5.0 - 10.4.99',
         ]
     ]
 ];
