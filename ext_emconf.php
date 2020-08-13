@@ -1,9 +1,9 @@
 <?php
 
-$EM_CONF[$_EXTKEY] = [
+$EM_CONF['slug_extbase'] = [
     'title' => 'Slug updater for Extbase',
     'description' => 'Utility to update slug fields after changing or creating Extbase objects in frontend',
-    'version' => '1.0.0',
+    'version' => '1.0.1',
     'category' => 'misc',
     'state' => 'beta',
     'clearCacheOnLoad' => true,
