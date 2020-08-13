@@ -36,3 +36,7 @@ Okay, you need a slug field in database and the [TCA configuration](https://docs
 
 Whenever you create or update an Extbase model via a frontend form, the magic happens and the slug field 
 will be updated like you configured it. 
+
+## Kudos
+
+Thanks to [12bis3](https://www.12bis3.de) for the ideas to use interfaces and for the automatic slug update!
