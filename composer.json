@@ -1,0 +1,15 @@
+{
+  "name": "spooner-web/slug-extbase",
+  "description": "Utility to update slug fields after changing or creating Extbase objects in frontend",
+  "type": "library",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "php": "^7.2",
+    "typo3/cms-backend": "^9.5 || ^10.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "SpoonerWeb\\SlugExtbase\\": "Classes"
+    }
+  }
+}
