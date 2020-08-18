@@ -3,6 +3,23 @@
   "description": "Utility to update slug fields after changing or creating Extbase objects in frontend",
   "type": "typo3-cms-extension",
   "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Thomas Löffler",
+      "role": "Developer",
+      "email": "loeffler@spooner-web.de",
+      "homepage": "https://spooner-web.de"
+    }
+  ],
+  "support": {
+    "issues": "https://git.spooner.io/spooner-web/slug-extbase/issues"
+  },
+  "funding": [
+    {
+      "type": "other",
+      "url": "https://paypal.me/Tomalo"
+    }
+  ],
   "require": {
     "php": "^7.2",
     "typo3/cms-core": "^9.5 || ^10.4",
