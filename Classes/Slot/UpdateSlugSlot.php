@@ -42,7 +42,7 @@ class UpdateSlugSlot
         }
     }
 
-    protected function getTableAndSlugFieldName(DomainObjectInterface $object)
+    protected function getTableAndSlugFieldName(DomainObjectInterface $object): array
     {
         $tableName = GeneralUtility::makeInstance(ObjectManager::class)
             ->get(DataMapper::class)
@@ -61,14 +61,19 @@ class UpdateSlugSlot
     {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable($tableName);
 
-        $record = $queryBuilder->select('*')
+        $record = $queryBuilder
+            ->select('*')
             ->from($tableName)
             ->where($queryBuilder->expr()->eq('uid', $objectUid))
             ->execute()
             ->fetch();
 
-        $helper = GeneralUtility::makeInstance(SlugHelper::class, $tableName, $slugFieldName,
-            $GLOBALS['TCA'][$tableName]['columns'][$slugFieldName]['config']);
+        $helper = GeneralUtility::makeInstance(
+            SlugHelper::class, 
+            $tableName, 
+            $slugFieldName,
+            $GLOBALS['TCA'][$tableName]['columns'][$slugFieldName]['config']
+        );
 
         $value = $helper->generate($record, $record['pid']);
         $state = RecordStateFactory::forName($tableName)->fromArray($record, $record['pid'], $record['uid']);
@@ -79,8 +84,11 @@ class UpdateSlugSlot
             $value = $helper->buildSlugForUniqueInSite($value, $state);
         }
 
-        $queryBuilder->update($tableName)
-            ->where($queryBuilder->expr()->eq('uid', $objectUid))
+        $queryBuilder
+            ->update($tableName)
+            ->where(
+                $queryBuilder->expr()->eq('uid', $objectUid)
+            )
             ->set($slugFieldName, $value)
             ->execute();
     }
