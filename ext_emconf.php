@@ -3,7 +3,7 @@
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Slug updater for Extbase',
     'description' => 'Utility to update slug fields after changing or creating Extbase objects in frontend',
-    'version' => '1.0.2',
+    'version' => '1.0.3',
     'category' => 'misc',
     'state' => 'beta',
     'author' => 'Thomas Löffler',
