@@ -1,4 +1,8 @@
+include:
+  - remote: 'https://git.spooner.io/ci-templates/composer-packages/-/raw/main/composer-packages.yml'
+
 stages:
+  - packages
   - release
 
 "Upload to TER":
