@@ -16,6 +16,7 @@ namespace SpoonerWeb\SlugExtbase\Slot;
 
 use SpoonerWeb\SlugExtbase\SlugEntityInterface;
 use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Database\Query\Restriction\HiddenRestriction;
 use TYPO3\CMS\Core\DataHandling\Model\RecordStateFactory;
 use TYPO3\CMS\Core\DataHandling\SlugHelper;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -60,6 +61,7 @@ class UpdateSlugSlot
     protected function generateAndSaveSlug(int $objectUid, string $tableName, string $slugFieldName)
     {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable($tableName);
+        $queryBuilder->getRestrictions()->removeByType(HiddenRestriction::class);
 
         $record = $queryBuilder
             ->select('*')
